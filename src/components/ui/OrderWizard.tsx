@@ -49,7 +49,7 @@ export function OrderWizard() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-10 w-full max-w-3xl mx-auto border border-gray-100">
+    <div className="bg-white rounded-3xl shadow-2xl p-5 sm:p-6 md:p-10 w-full max-w-3xl mx-auto border border-gray-100">
       {/* Progress Bar */}
       <div className="flex items-center justify-between mb-8 relative">
         <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-gray-100 -z-10 rounded-full"></div>
@@ -75,29 +75,29 @@ export function OrderWizard() {
       {/* Step 1: Products */}
       {step === 1 && (
         <div className="animate-in fade-in slide-in-from-right-4 duration-300">
-          <h3 className="text-2xl font-display font-bold text-[#0F172A] mb-6 flex items-center gap-2">
-            <ShoppingCart className="w-6 h-6 text-[#0284C7]" /> ¿Qué necesitas hoy?
+          <h3 className="text-xl md:text-2xl font-display font-bold text-[#0F172A] mb-4 md:mb-6 flex items-center gap-2">
+            <ShoppingCart className="w-5 h-5 md:w-6 md:h-6 text-[#0284C7]" /> ¿Qué necesitas hoy?
           </h3>
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             {catalog.map(item => (
-              <div key={item.id} className="flex items-center justify-between p-4 rounded-2xl border-2 border-transparent bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-[#38BDF8] hover:shadow-[0_8px_30px_rgba(56,189,248,0.12)] transition-all group">
-                <div className="flex items-center gap-5 flex-1">
-                  <div className="w-20 h-20 bg-gray-50 rounded-xl flex-shrink-0 border border-gray-100 p-2 relative group-hover:bg-[#F0F9FF] transition-colors">
-                    <Image src={item.image} alt={item.name} fill sizes="80px" className="object-contain p-2 group-hover:scale-110 transition-transform duration-300" />
+              <div key={item.id} className="flex flex-col sm:flex-row items-center justify-between p-4 rounded-2xl border-2 border-transparent bg-white shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-[#38BDF8] hover:shadow-[0_8px_30px_rgba(56,189,248,0.12)] transition-all group gap-4">
+                <div className="flex items-center gap-3 sm:gap-5 flex-1 w-full sm:w-auto">
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 rounded-xl flex-shrink-0 border border-gray-100 p-2 relative group-hover:bg-[#F0F9FF] transition-colors">
+                    <Image src={item.image} alt={item.name} fill sizes="(max-width: 640px) 64px, 80px" className="object-contain p-1 sm:p-2 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-lg text-[#0F172A] group-hover:text-[#0284C7] transition-colors">{item.name}</h4>
-                    <div className="text-[#0284C7] font-black text-lg">${item.price.toLocaleString('es-CL')}</div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-base sm:text-lg text-[#0F172A] group-hover:text-[#0284C7] transition-colors leading-tight">{item.name}</h4>
+                    <div className="text-[#0284C7] font-black text-base sm:text-lg mt-0.5">${item.price.toLocaleString('es-CL')}</div>
                   </div>
                 </div>
                 
-                <div className="flex items-center gap-3 bg-gray-50 rounded-full p-1.5 border border-gray-200">
-                  <button onClick={() => updateQuantity(item.id, -1)} className="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-red-500 hover:bg-gray-100 transition-colors disabled:opacity-30 active:scale-95" disabled={!quantities[item.id]}>
-                    <Minus className="w-5 h-5" />
+                <div className="flex items-center gap-2 sm:gap-3 bg-gray-50 rounded-full p-1.5 border border-gray-200 w-full sm:w-auto justify-between sm:justify-start">
+                  <button onClick={() => updateQuantity(item.id, -1)} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-sm flex items-center justify-center text-gray-600 hover:text-red-500 hover:bg-gray-100 transition-colors disabled:opacity-30 active:scale-95 flex-shrink-0" disabled={!quantities[item.id]}>
+                    <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
-                  <span className="w-6 text-center font-black text-xl text-[#0F172A]">{quantities[item.id] || 0}</span>
-                  <button onClick={() => updateQuantity(item.id, 1)} className="w-10 h-10 rounded-full bg-[#0284C7] shadow-md shadow-[#0284C7]/20 flex items-center justify-center text-white hover:bg-[#38BDF8] transition-colors active:scale-95">
-                    <Plus className="w-5 h-5" />
+                  <span className="w-8 sm:w-6 text-center font-black text-lg sm:text-xl text-[#0F172A]">{quantities[item.id] || 0}</span>
+                  <button onClick={() => updateQuantity(item.id, 1)} className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0284C7] shadow-md shadow-[#0284C7]/20 flex items-center justify-center text-white hover:bg-[#38BDF8] transition-colors active:scale-95 flex-shrink-0">
+                    <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
@@ -109,10 +109,10 @@ export function OrderWizard() {
       {/* Step 2: Form */}
       {step === 2 && (
         <div className="animate-in fade-in slide-in-from-right-4 duration-300">
-          <h3 className="text-2xl font-display font-bold text-[#0F172A] mb-6 flex items-center gap-2">
-            <MapPin className="w-6 h-6 text-[#0284C7]" /> ¿Dónde lo llevamos?
+          <h3 className="text-xl md:text-2xl font-display font-bold text-[#0F172A] mb-4 md:mb-6 flex items-center gap-2">
+            <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#0284C7]" /> ¿Dónde lo llevamos?
           </h3>
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div className="relative">
               <label className="block text-sm font-bold text-gray-700 mb-2">Tu Nombre y Apellido</label>
               <div className="relative">
@@ -184,30 +184,30 @@ export function OrderWizard() {
                 })}
               </ul>
             </div>
-            <div className="bg-[#0F172A] text-white p-6 flex justify-between items-center font-display">
-              <span className="text-lg text-gray-300 uppercase tracking-wider font-bold">Total a Pagar</span>
-              <span className="text-3xl font-black text-[#38BDF8]">${calculateTotal().toLocaleString('es-CL')}</span>
+            <div className="bg-[#0F172A] text-white p-5 sm:p-6 flex flex-col sm:flex-row justify-between items-center sm:items-baseline font-display gap-1 sm:gap-0">
+              <span className="text-sm sm:text-lg text-gray-300 uppercase tracking-wider font-bold">Total a Pagar</span>
+              <span className="text-4xl sm:text-3xl font-black text-[#38BDF8]">${calculateTotal().toLocaleString('es-CL')}</span>
             </div>
           </div>
         </div>
       )}
 
       {/* Footer Navigation */}
-      <div className="mt-8 flex justify-between items-center border-t border-gray-100 pt-6">
+      <div className="mt-8 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center border-t border-gray-100 pt-6 gap-4 sm:gap-0">
         {step > 1 ? (
           <button 
             onClick={() => setStep(step - 1)}
-            className="text-gray-500 hover:text-[#0F172A] font-medium flex items-center gap-1 transition-colors"
+            className="text-gray-500 hover:text-[#0F172A] font-bold flex items-center justify-center sm:justify-start gap-1 transition-colors py-2 sm:py-0"
           >
-            <ChevronLeft className="w-5 h-5" /> Volver
+            <ChevronLeft className="w-5 h-5" /> Volver atrás
           </button>
-        ) : <div></div>}
+        ) : <div className="hidden sm:block"></div>}
         
         {step < 3 ? (
           <button 
             onClick={handleNext}
             disabled={step === 1 ? totalItems === 0 : !(customer.name && customer.address)}
-            className="bg-[#0F172A] text-white px-10 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-[#0284C7] transition-all disabled:opacity-30 shadow-md active:scale-95"
+            className="bg-[#0F172A] text-white px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-[#0284C7] transition-all disabled:opacity-30 shadow-md active:scale-95 w-full sm:w-auto"
           >
             Siguiente Paso <ChevronRight className="w-5 h-5" />
           </button>
@@ -216,7 +216,7 @@ export function OrderWizard() {
             href={generateOrderMessage()}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#25D366] text-white px-10 py-4 rounded-full font-bold flex items-center gap-2 hover:bg-[#1DA851] transition-all shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:shadow-[0_10px_40px_rgba(37,211,102,0.5)] active:scale-95 group w-full justify-center md:w-auto"
+            className="bg-[#25D366] text-white px-6 sm:px-10 py-3.5 sm:py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-[#1DA851] transition-all shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:shadow-[0_10px_40px_rgba(37,211,102,0.5)] active:scale-95 group w-full sm:w-auto text-center"
           >
             Enviar al WhatsApp <ShoppingCart className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </a>
