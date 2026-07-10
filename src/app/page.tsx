@@ -16,8 +16,8 @@ export default function Home() {
         </div>
         
         <div className="container mx-auto px-4 text-center w-full relative z-10 mt-2 md:mt-6">
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-sm mb-8 animate-fade-in-up uppercase tracking-widest shadow-2xl">
-            <Truck className="w-5 h-5 text-white" /> Repartos en todo Puerto Montt
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xs sm:text-sm mb-8 animate-fade-in-up uppercase tracking-wider sm:tracking-widest shadow-2xl whitespace-nowrap">
+            <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> Repartos en todo Puerto Montt
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white leading-[1.1] mb-6 tracking-tight mx-auto">
@@ -136,24 +136,25 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-5xl font-display font-black text-[#0F172A] leading-tight mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="text-center lg:text-left flex flex-col items-center lg:items-start">
+              <h2 className="text-4xl lg:text-5xl font-display font-black text-[#0F172A] leading-tight mb-6 lg:mb-8">
                 Las familias de <span className="text-[#0284C7]">Puerto Montt</span> nos prefieren.
               </h2>
-              <div className="flex gap-2 text-yellow-400 mb-8">
-                <Star className="w-8 h-8 fill-current" />
-                <Star className="w-8 h-8 fill-current" />
-                <Star className="w-8 h-8 fill-current" />
-                <Star className="w-8 h-8 fill-current" />
-                <Star className="w-8 h-8 fill-current" />
+              <div className="flex justify-center lg:justify-start gap-1 lg:gap-2 text-yellow-400 mb-6 lg:mb-8">
+                <Star className="w-6 h-6 lg:w-8 lg:h-8 fill-current" />
+                <Star className="w-6 h-6 lg:w-8 lg:h-8 fill-current" />
+                <Star className="w-6 h-6 lg:w-8 lg:h-8 fill-current" />
+                <Star className="w-6 h-6 lg:w-8 lg:h-8 fill-current" />
+                <Star className="w-6 h-6 lg:w-8 lg:h-8 fill-current" />
               </div>
-              <blockquote className="text-xl text-gray-700 font-medium leading-relaxed italic mb-8 border-l-4 border-[#0284C7] pl-6">
-                "Cambió el sabor del té y el café en la casa. Se nota la diferencia al ser libre de sodio. El reparto a Valle Volcanes es súper puntual, no los cambio por nada."
+              <blockquote className="text-lg lg:text-xl text-gray-700 font-medium leading-relaxed italic mb-8 border-l-0 lg:border-l-4 border-transparent lg:border-[#0284C7] pl-0 lg:pl-6 relative">
+                <span className="lg:hidden block text-6xl text-[#0284C7]/20 absolute -top-6 left-1/2 -translate-x-1/2">"</span>
+                <span className="relative z-10">"Cambió el sabor del té y el café en la casa. Se nota la diferencia al ser libre de sodio. El reparto a Valle Volcanes es súper puntual, no los cambio por nada."</span>
               </blockquote>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-4">
                  <div className="w-12 h-12 bg-[#0F172A] rounded-full flex items-center justify-center text-white font-bold text-lg">MJ</div>
-                 <div>
+                 <div className="text-center lg:text-left">
                     <div className="font-bold text-[#0F172A]">María José S.</div>
                     <div className="text-sm text-gray-500">Valle Volcanes</div>
                  </div>
