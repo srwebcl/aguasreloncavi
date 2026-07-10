@@ -33,7 +33,7 @@ export function OrderWizard() {
 
   const generateOrderMessage = () => {
     const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '56981465007';
-    let message = `Hola Aguas Reloncaví 💧. Soy ${customer.name}, mi pedido es:\n`;
+    let message = `Hola Aguas Reloncaví. Soy ${customer.name}, mi pedido es:\n`;
     
     catalog.forEach(item => {
       const q = quantities[item.id] || 0;
