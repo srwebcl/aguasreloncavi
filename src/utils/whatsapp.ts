@@ -11,3 +11,10 @@ export function generateGenericWhatsAppLink(): string {
   
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
+
+export function generateServiceWhatsAppLink(serviceTitle: string): string {
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '56981465007';
+  const text = `Hola Aguas Reloncaví, me gustaría cotizar el servicio de ${serviceTitle}. ¿Podrían darme más información?`;
+
+  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+}

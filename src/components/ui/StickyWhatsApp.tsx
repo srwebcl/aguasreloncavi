@@ -1,17 +1,16 @@
-import Image from 'next/image';
 import { generateGenericWhatsAppLink } from '@/utils/whatsapp';
 
 export function StickyWhatsApp() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group">
-      <div className="bg-white text-gray-800 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group animate-float-soft">
+      <div className="hidden [@media(hover:hover)]:block bg-white text-gray-800 text-sm font-bold px-4 py-2 rounded-2xl shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
         ¡Pide tu agua aquí! 💧
       </div>
       <a
         href={generateGenericWhatsAppLink()}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_10px_40px_rgba(37,211,102,0.6)] transition-all duration-300 animate-bounce block w-16 h-16 flex items-center justify-center"
+        className="relative bg-[#25D366] text-white p-4 rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_10px_40px_rgba(37,211,102,0.6)] transition-[transform,box-shadow] duration-300 w-16 h-16 flex items-center justify-center"
         aria-label="Contactar por WhatsApp"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">

@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { catalog } from '@/data/catalog';
-import { CatalogCard } from '@/components/ui/CatalogCard';
-import { generateGenericWhatsAppLink } from '@/utils/whatsapp';
+import Link from 'next/link';
 import { Droplets, ShieldCheck, Truck, Star } from 'lucide-react';
 import { OrderWizard } from '@/components/ui/OrderWizard';
+import { ServicesSection } from '@/components/ui/ServicesSection';
 
 export default function Home() {
   return (
@@ -20,28 +19,28 @@ export default function Home() {
             <Truck className="w-4 h-4 sm:w-5 sm:h-5 text-white" /> Repartos en todo Puerto Montt
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white leading-[1.1] mb-6 tracking-tight mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-black text-white leading-[1.1] mb-6 tracking-tight mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
             El agua más pura del sur,<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] to-[#E0F2FE]">directo en tu puerta.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-medium drop-shadow-md">
-            Pide hoy, recíbelo hoy. Bidones de 25L libres de sodio con un servicio express en el que puedes confiar.
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-medium drop-shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            Pide hoy, recíbelo hoy. Botellones de 10 y 20 litros libres de sodio con un servicio express en el que puedes confiar.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '450ms' }}>
             <a 
               href="#pedido"
               className="bg-[#38BDF8] text-[#0F172A] px-10 py-4 rounded-full font-bold text-lg hover:bg-white transition-all shadow-[0_0_40px_rgba(56,189,248,0.4)] hover:shadow-[0_0_60px_rgba(255,255,255,0.6)] hover:-translate-y-1 w-full sm:w-auto"
             >
               Hacer Pedido Ahora
             </a>
-            <a 
-              href="#catalogo"
+            <Link 
+              href="/catalogo"
               className="bg-transparent text-white border-2 border-white/30 px-10 py-4 rounded-full font-bold text-lg hover:border-white hover:bg-white hover:text-[#0F172A] transition-all w-full sm:w-auto"
             >
               Ver Catálogo
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -67,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* Proceso de Purificación - Carousel */}
-      <section id="proceso" className="py-24 bg-[#0F172A] relative overflow-hidden text-white scroll-mt-32">
+      <section id="proceso" className="py-24 bg-[#0F172A] relative overflow-hidden text-white scroll-mt-32 noise">
         <div className="absolute right-0 top-0 w-full md:w-1/2 h-full">
             <Image src="/images/hero2.jpeg" alt="Planta" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-20 mix-blend-overlay" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A] via-[#0F172A]/80 to-transparent"></div>
@@ -110,23 +109,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Catálogo */}
-      <section id="catalogo" className="py-24 bg-[#F8FAFC] relative scroll-mt-32">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-[#0F172A] mb-4">Nuestros Productos</h2>
-            <p className="text-xl text-gray-500 max-w-2xl mx-auto">Selecciona tu producto y agrégalo en el formulario de arriba.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {catalog.map((product) => (
-              <div key={product.id} className="hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 rounded-2xl bg-white border border-gray-100">
-                <CatalogCard product={product} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ServicesSection />
 
       {/* Testimonios - Formato Revista / Pro */}
       <section id="testimonios" className="py-32 bg-white relative overflow-hidden scroll-mt-32">
@@ -174,7 +157,7 @@ export default function Home() {
                         </div>
                         <div className="bg-[#0284C7] p-8 rounded-3xl shadow-xl text-white mx-4">
                             <p className="text-white/90 text-lg mb-6 leading-relaxed">
-                                "Compramos la promo de 2 bidones + dispensador y fue la mejor inversión. Agua fresca siempre."
+                                "Compramos el pack de 3 botellones + dispensador y fue la mejor inversión. Agua fresca siempre."
                             </p>
                             <div className="font-bold">Familia Soto <span className="text-[#bae6fd] font-normal ml-2">Puerta Sur</span></div>
                         </div>
